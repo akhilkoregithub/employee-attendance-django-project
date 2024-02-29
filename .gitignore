@@ -1,0 +1,6 @@
+# Virtual environments
+myenv/
+
+# Cache files
+__pycache__
+.gitattributes

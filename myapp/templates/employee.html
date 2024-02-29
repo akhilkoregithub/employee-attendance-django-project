@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Employee
+{% endblock title %}
+
+{% block body %}
+<div class="container-fluid p-3">
+  <div class="row">
+    <div class="col-md-12 p-3 ">
+      <!-- Trigger Today Attendance -->
+      <a href="{% url 'today_attendance' %}" class="btn btn-primary text-right">
+        View Today's Attendance
+      </a>
+
+      <!-- Trigger All Attendance -->
+      <a href="{% url 'all_attendance' %}" class="btn btn-warning">
+        View All Attendance
+      </a>
+    </div>
+    <div class="col-md-4 border p-3 rounded">
+      <h3 class="text-center">Employee Form</h3>
+      <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+        <div class="mb-3">
+          <label class="form-label">{{fm.label_tag}} <span class="text-danger">*</span></label>
+          {{fm}}
+          <span class="text-danger"><i>{{fm.errors|striptags}}</i></span>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{% url 'employee' %}" class="btn btn-secondary">Reset</a>
+      </form>
+    </div>
+    <div class="col-md-8 border p-3 rounded">
+      <h3 class="text-center">Employee List</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for i in all_employees %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.department}}</td>
+            <td>
+              <a href="{% url 'update' i.id %}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></a>
+              <a href="{% url 'delete' i.id %}" class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></a>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock body %}

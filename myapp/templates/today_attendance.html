@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Employee | Todays's Attendance
+{% endblock title %}
+
+{% block body %}
+<div class="container p-3">
+    
+    <a href="{% url 'employee' %}" class="btn btn-secondary" type="submit">Back to home</a>
+    <a href="{% url 'take_attendance' %}" class="btn btn-secondary" type="submit">Take Today's Attendance</a>
+    <div>
+      <h3 class="text-center">Todays's Attendance</h3>
+    </div>
+    <table class="table table-bordered mt-3">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Is Present?</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for i in today_attendance %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.employee.name}}</td>
+            <td>
+              {{i.employee.department}}
+            </td>
+            <td>
+              {% if i.is_present %}
+              <i class="bi bi-check-circle-fill text-success"></i>
+              {% else %}
+              <i class="bi bi-x-circle-fill text-danger"></i>
+              {% endif %}
+                
+            </td>
+            
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    
+
+</div>
+{% endblock body %}
