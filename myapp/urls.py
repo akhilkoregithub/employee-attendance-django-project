@@ -10,8 +10,4 @@ urlpatterns = [
     path('take_attendance/', take_today_attendance_view, name='take_attendance'),
     path('today_attendance/', today_attendance_view, name='today_attendance'),
     path('all_attendance/', all_attendance_view, name='all_attendance'),
-
-
-
-
 ]

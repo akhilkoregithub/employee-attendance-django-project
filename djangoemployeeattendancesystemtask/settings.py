@@ -60,26 +60,25 @@ WSGI_APPLICATION = 'djangoemployeeattendancesystemtask.wsgi.application'
 
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+ }
 
-# Postgres SQL Database configuration
+""" Postgres SQL Database configuration
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'employee',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
+        'NAME': 'employeedb',
+        'USER': 'myuser',
+        'PASSWORD': 'mypassword',
         'HOST': 'localhost',   # Or your database host
         'PORT': '5432',        # Or your database port
     }
 }
-
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
