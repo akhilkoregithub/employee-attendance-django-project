@@ -29,7 +29,7 @@ if not then open the edit form to fill each employee's attendance on a single pa
 # Technologies used:
 - Frontend (Bootstrap - 5.3)
 - Backend (Django web framework - 5.0)
-- Database (Postgres SQL database)
+- Database (sqlite3 or Postgres SQL database)
 
 # Note: 
 - Internet is required for run the project because of I used bootstrap CDN
